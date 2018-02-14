@@ -1,0 +1,58 @@
+{
+  "name": "gsitewebfront",
+  "version": "0.0.1",
+  "description": "gsite的前端",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "./node_modules/.bin/webpack-dev-server --progress --profile --colors",
+    "dev": "npm run devserver -- --env=dev",
+    "build:prod": "npm run webpack -- --env=prod",
+    "middev": "node ./middleware.js"
+  },
+  "author": "geek720",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-dynamic-import-webpack": "^1.0.2",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.9",
+    "html-webpack-plugin": "^2.30.1",
+    "style-loader": "^0.20.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2017"
+      ],
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "dynamic-import-webpack"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-cli": "^6.26.0",
+    "github-markdown-css": "^2.10.0",
+    "http-proxy-middleware": "^0.17.4",
+    "lodash": "^4.17.4",
+    "markdown-it": "^8.4.0",
+    "markdown-it-katex": "^2.0.3",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.4.0",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-hot-middleware": "^2.21.0"
+  }
+}

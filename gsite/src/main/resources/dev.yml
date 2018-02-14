@@ -1,0 +1,18 @@
+server:
+  port: 10008
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/gsite
+  mvc:
+    view:
+      prefix:
+        /
+      suffix:
+        .html
+
+endpoints:
+  cors:
+    allowed-headers: '*'
+    allowed-origins: '*'
+    allowed-methods: '*'
