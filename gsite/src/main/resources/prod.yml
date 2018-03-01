@@ -3,8 +3,8 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://45.32.44.78/gsite
-      host: 45.32.44.78
+      uri: mongodb://localhost/gsite
+      host: localhost
   mvc:
     view:
       prefix:
