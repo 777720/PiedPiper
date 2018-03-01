@@ -8,11 +8,15 @@ const entryDir = path.join(__dirname, 'src/entry/')
 const templateFile = path.join(__dirname, 'index.html')
 
 
-const addEntryFn = (config, key, value) => {
+const addEntryFn = (config, key, value, isProd) => {
   console.log(`找到了entry！，key=${key},value=${value}`);
   console.log(config);
-  config.entry[key] = [value, 'webpack-hot-middleware/client?reload=true']
-  //config.entry[key] = value
+  console.log("是正式环境打包吗？" + isProd);
+  if (isProd) {
+    config.entry[key] = [value, 'webpack-hot-middleware/client?reload=true']
+  } else {
+    config.entry[key] = value
+  }
   config.plugins.push(new HtmlWebpackPlugin(
     {
       title: key,
@@ -24,23 +28,23 @@ const addEntryFn = (config, key, value) => {
   ))
 }
 
-const getEntrys = (config, rootpath, fn) => {
+const getEntrys = (config, rootpath, fn, isProd) => {
   const files = fs.readdirSync(rootpath)
   for(let key in files) {
     const fullName = path.join(rootpath, "/", files[key])
     const stat = fs.lstatSync(fullName)
     if (stat.isDirectory()) {
-      getEntrys(config, fullName, fn)
+      getEntrys(config, fullName, fn, isProd)
     } else {
       const fileName = path.basename(fullName, '.jsx')
       if (_.startsWith(fileName, 'entry-')) {
         const entryKey = fileName.replace('entry-', '')
-        fn(config, entryKey, fullName)
+        fn(config, entryKey, fullName, isProd)
       }
     }
   }
 }
 
- module.exports = function (config) {
-  getEntrys(config, entryDir, addEntryFn);
+ module.exports = function (config, isProd) {
+  getEntrys(config, entryDir, addEntryFn, isProd);
 }

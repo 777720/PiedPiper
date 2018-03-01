@@ -14,6 +14,6 @@ const config = webpackMerge(commonConfig, {
   ],
   
 })
-initEntry(config)
+initEntry(config, false)
 
 module.exports = config

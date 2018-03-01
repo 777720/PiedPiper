@@ -22,6 +22,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
   ]
 })
 
-initEntry(config)
+initEntry(config, true)
 
 module.exports = config
