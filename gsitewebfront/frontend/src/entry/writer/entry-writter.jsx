@@ -7,14 +7,13 @@ import LoginView from './components/LoginView'
 
 axios.get("/api/writter/self").then((res) => {
   const result  = res.data
-  const writter = result.success ? result.data : {}
-  const { id, writtername } = writter
-  const writterObject = {
-    name: writtername,
-    id,
-  }
-  if (_.isEmpty(id)) {
-    ReactDom.render(<WritterApp writter={writterObject} />, document.getElementById('app'))
+  if (result.success) {
+    const { id, writtername } = result.data
+    const writterObject = {
+      name: writtername,
+      id,
+    }
+      ReactDom.render(<WritterApp writter={writterObject} />, document.getElementById('app'))
   } else {
     ReactDom.render(<LoginView />, document.getElementById('app'))
   }

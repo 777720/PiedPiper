@@ -13,9 +13,9 @@ const addEntryFn = (config, key, value, isProd) => {
   console.log(config);
   console.log("是正式环境打包吗？" + isProd);
   if (isProd) {
-    config.entry[key] = [value, 'webpack-hot-middleware/client?reload=true']
-  } else {
     config.entry[key] = value
+  } else {
+    config.entry[key] = [value, 'webpack-hot-middleware/client?reload=true']
   }
   config.plugins.push(new HtmlWebpackPlugin(
     {
