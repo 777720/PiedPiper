@@ -6,7 +6,7 @@ const initEntry = require('./initEntry')
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const proxy = require('http-proxy-middleware');
-const webpackConfig = require('./config/dev')
+const webpackConfig = require('./config/dev.js')
 const compiler = webpack(webpackConfig)
 
 const app = new express();

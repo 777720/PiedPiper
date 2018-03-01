@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prod": " ./node_modules/.bin/webpack --progress --profile --colors  --env=prod",
-    "dev": " npm run middev --env=dev",
+    "dev": " npm run middev",
     "middev": "node ./middleware.js"
   },
   "author": "geek720",

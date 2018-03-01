@@ -10,6 +10,7 @@ const templateFile = path.join(__dirname, 'index.html')
 
 const addEntryFn = (config, key, value) => {
   console.log(`找到了entry！，key=${key},value=${value}`);
+  console.log(config);
   config.entry[key] = [value, 'webpack-hot-middleware/client?reload=true']
   //config.entry[key] = value
   config.plugins.push(new HtmlWebpackPlugin(

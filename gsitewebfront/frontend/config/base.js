@@ -7,9 +7,6 @@ const path = require("path")
 
  const config = {
   entry: {},
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   module: {
     rules: [
       {
@@ -34,6 +31,6 @@ const path = require("path")
     }
   },
 }
-initEntry(config)
+// initEntry(config)
 
 module.exports  = config

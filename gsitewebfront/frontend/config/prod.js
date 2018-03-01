@@ -2,9 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackMerge = require("webpack-merge");
 const CommonConfig = require("./base");
+const initEntry = require("../initEntry")
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = webpackMerge(CommonConfig, {
+ const config = webpackMerge(CommonConfig, {
   output: {
     path: path.resolve(
       __dirname,
@@ -20,3 +21,7 @@ module.exports = webpackMerge(CommonConfig, {
     new webpack.optimize.ModuleConcatenationPlugin(),
   ]
 })
+
+initEntry(config)
+
+module.exports = config
