@@ -10,7 +10,7 @@ const FootDiv = styled.div`
 const Footer = (props) => {
   return (
     <FootDiv>
-      Copyright © 2018 by nowamagic.net. All Rights Reserved. ♥ Do have faith in what you're doing. 
+      Author by geek720. 自豪地采用springboot+react. ♥ Do you a true fans？ . 
     </FootDiv>
   )
 }

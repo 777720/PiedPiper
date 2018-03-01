@@ -4,6 +4,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/gsite
+      host: localhost
   mvc:
     view:
       prefix:

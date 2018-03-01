@@ -1,5 +1,16 @@
 server:
   port: 10001
+spring:
+  data:
+    mongodb:
+      uri: mongodb://45.32.44.78/gsite
+      host: 45.32.44.78
+  mvc:
+    view:
+      prefix:
+        /
+      suffix:
+        .html
 
 endpoints:
   cors:

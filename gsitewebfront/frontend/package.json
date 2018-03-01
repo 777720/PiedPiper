@@ -4,7 +4,8 @@
   "description": "gsite的前端",
   "main": "index.js",
   "scripts": {
-    "prod": "./node_modules/.bin/webpack --env=prod",
+    "prod": " ./node_modules/.bin/webpack --progress --profile --colors  --env=prod",
+    "dev": " npm run middev --env=dev",
     "middev": "node ./middleware.js"
   },
   "author": "geek720",
@@ -13,6 +14,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-dynamic-import-webpack": "^1.0.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.5.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -35,7 +37,8 @@
       "stage-0"
     ],
     "plugins": [
-      "dynamic-import-webpack"
+      "dynamic-import-webpack",
+      "transform-decorators-legacy"
     ]
   },
   "dependencies": {
@@ -46,9 +49,14 @@
     "lodash": "^4.17.4",
     "markdown-it": "^8.4.0",
     "markdown-it-katex": "^2.0.3",
+    "moment": "^2.20.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
     "styled-components": "^2.4.0",
     "webpack-dev-middleware": "^2.0.4",
     "webpack-hot-middleware": "^2.21.0"

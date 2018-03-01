@@ -1,4 +1,4 @@
-package com.qishaung.gsite.domain.dao;
+package com.qishaung.gsite.domain.dao.repository;
 
 import com.qishaung.gsite.domain.model.Article;
 import org.springframework.data.mongodb.repository.MongoRepository;

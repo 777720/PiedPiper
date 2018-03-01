@@ -2,12 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
+
 
 ### IntelliJ IDEA ###
 .idea
@@ -15,13 +10,6 @@ target/
 *.iml
 *.ipr
 
-### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
 
 ### mac ###
 .DS_Store
@@ -37,3 +25,4 @@ assets/
 lib/
 dist/
 test/
+bulid/

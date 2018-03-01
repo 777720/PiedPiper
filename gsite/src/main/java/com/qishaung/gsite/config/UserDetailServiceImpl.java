@@ -1,6 +1,6 @@
 package com.qishaung.gsite.config;
 
-import com.qishaung.gsite.domain.dao.WritterRepository;
+import com.qishaung.gsite.domain.dao.repository.WritterRepository;
 import com.qishaung.gsite.domain.model.Writter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

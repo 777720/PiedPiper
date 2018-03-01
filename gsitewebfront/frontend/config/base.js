@@ -3,6 +3,7 @@ const initEntry =  require('../initEntry.js')
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require("path")
 
  const config = {
   entry: {},
@@ -27,6 +28,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
+    alias: {
+      timeFormat: path.resolve(__dirname, '../src/entry/common/components/utils/timeformat.js'),
+      SvgIcon: path.resolve(__dirname, "../src/entry/common/components/svg/SvgIcon.js")
+    }
   },
 }
 initEntry(config)

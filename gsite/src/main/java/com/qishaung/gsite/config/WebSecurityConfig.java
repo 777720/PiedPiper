@@ -49,7 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/",
                         "/health",
-                        "/api/writter/self"
+                        "/api/writter/self",
+                        "/api/reader/**"
                 )
                 .permitAll()
                 .anyRequest()
