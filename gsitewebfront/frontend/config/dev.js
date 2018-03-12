@@ -7,7 +7,7 @@ const initEntry = require('../initEntry')
 const config = webpackMerge(commonConfig, {
   output: {
     filename: "[name]-bundle.js",
-    publicPath: "http://127.0.0.1:8080/assets/"
+    publicPath: "/"
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

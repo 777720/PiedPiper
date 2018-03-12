@@ -20,7 +20,6 @@ const proxyConfig = {
 const GsiteProxy = proxy(proxyConfig);
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
-  publicPath: "http://0.0.0.0:8080/assets/",
   stats: {
     colors: true,
     chunks: true,
@@ -59,6 +58,19 @@ app.use('/api(/.*)?', GsiteProxy)
 
 app.get("/writter", function (req, res, next) {
   const pagename = "writter.html"
+  const filePath = path.join(compiler.outputPath, pagename)
+  compiler.outputFileSystem.readFile(filePath, function (err, result) {
+    if (err) {
+      return next("输入路径无效，请输入目录名作为路径")
+    }
+    res.set('content-type', 'text/html')
+    res.send(result)
+    res.end()
+
+  })
+})
+app.get("/aboutme", function (req, res, next) {
+  const pagename = "aboutme.html"
   const filePath = path.join(compiler.outputPath, pagename)
   compiler.outputFileSystem.readFile(filePath, function (err, result) {
     if (err) {

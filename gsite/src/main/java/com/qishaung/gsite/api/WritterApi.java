@@ -4,6 +4,7 @@ import com.qishaung.gsite.common.ApiCommonResult;
 import com.qishaung.gsite.common.exceptions.DateFormatException;
 import com.qishaung.gsite.config.MySecurityContext;
 import com.qishaung.gsite.domain.model.Article;
+import com.qishaung.gsite.domain.model.WorkExperience;
 import com.qishaung.gsite.domain.model.Writter;
 import com.qishaung.gsite.service.WritterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +57,14 @@ public class WritterApi {
             return new ApiCommonResult(false, 1, "时间格式格式化错误！");
         }
         return new ApiCommonResult(true, 1, "更新成功！", updatelist);
+    }
+    @PostMapping("/workexperience")
+    public ApiCommonResult postWorkExperience(@RequestBody WorkExperience we) {
+        try {
+            writterService.postWorkExperience(we);
+        } catch (Exception e) {
+            return new ApiCommonResult(false, 1, "未知错误");
+        }
+        return new ApiCommonResult(true, 1, "成功！");
     }
 }

@@ -4,9 +4,11 @@ import com.qishaung.gsite.common.exceptions.NotValidParamsException;
 import com.qishaung.gsite.domain.dao.repository.ArticleCollectionRepository;
 import com.qishaung.gsite.domain.dao.repository.ArticleRepository;
 import com.qishaung.gsite.domain.dao.repository.LeaveMessageRepository;
+import com.qishaung.gsite.domain.dao.repository.WorkExperienceRepository;
 import com.qishaung.gsite.domain.model.Article;
 import com.qishaung.gsite.domain.model.ArticleCollection;
 import com.qishaung.gsite.domain.model.LeaveMessage;
+import com.qishaung.gsite.domain.model.WorkExperience;
 import com.qishaung.gsite.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,8 @@ public class ReaderServiceImpl implements ReaderService {
     private ArticleCollectionRepository articleCollectionRepository;
     @Autowired
     private LeaveMessageRepository leaveMessageRepository;
+    @Autowired
+    private WorkExperienceRepository workExperienceRepository;
 
 
     @Override
@@ -52,5 +56,10 @@ public class ReaderServiceImpl implements ReaderService {
         lmes.setId(String.valueOf(UUID.randomUUID()));
         lmes.setCreateTime(new Date());
         leaveMessageRepository.insert(lmes);
+    }
+
+    @Override
+    public WorkExperience getWorkExperienceByName(String name) {
+        return workExperienceRepository.findByUsername(name);
     }
 }

@@ -2,9 +2,12 @@ package com.qishaung.gsite.service.impl;
 
 import com.qishaung.gsite.common.exceptions.DateFormatException;
 import com.qishaung.gsite.domain.dao.ArticleDao;
+import com.qishaung.gsite.domain.dao.WorkExperienceDao;
 import com.qishaung.gsite.domain.dao.repository.ArticleRepository;
+import com.qishaung.gsite.domain.dao.repository.WorkExperienceRepository;
 import com.qishaung.gsite.domain.dao.repository.WritterRepository;
 import com.qishaung.gsite.domain.model.Article;
+import com.qishaung.gsite.domain.model.WorkExperience;
 import com.qishaung.gsite.domain.model.Writter;
 import com.qishaung.gsite.service.WritterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -29,7 +31,12 @@ public class WritterServiceImpl implements WritterService {
     @Autowired
     private ArticleRepository articleRepository;
     @Autowired
+    private WorkExperienceRepository workExperienceRepository;
+    @Autowired
+    private WorkExperienceDao workExperienceDao;
+    @Autowired
     private ArticleDao articleDao;
+
 
     @Override
     public Writter getByWritterName(String writtername) {
@@ -90,6 +97,17 @@ public class WritterServiceImpl implements WritterService {
             }
         }
         return updateList;
+    }
+
+    @Override
+    public void postWorkExperience(WorkExperience we) {
+        we.setId(String.valueOf(UUID.randomUUID()));
+        workExperienceRepository.insert(we);
+    }
+
+    @Override
+    public void updateWorkExperience(String id, String type, Object value) {
+        workExperienceDao.updateWorkExperience(id, type, value);
     }
 
     private void insertNewArticle(Map<String, Object> body) {

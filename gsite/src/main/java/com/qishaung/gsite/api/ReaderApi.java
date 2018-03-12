@@ -5,6 +5,7 @@ import com.qishaung.gsite.common.exceptions.NotValidParamsException;
 import com.qishaung.gsite.domain.model.Article;
 import com.qishaung.gsite.domain.model.ArticleCollection;
 import com.qishaung.gsite.domain.model.LeaveMessage;
+import com.qishaung.gsite.domain.model.WorkExperience;
 import com.qishaung.gsite.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -49,5 +50,10 @@ public class ReaderApi {
             return new ApiCommonResult(false, 1, "错误的参数！");
         }
         return new ApiCommonResult(true, 1, "上传成功！");
+    }
+    @GetMapping("/workexperience/{name}")
+    public ApiCommonResult getWorkExperience(@PathVariable String name) {
+        WorkExperience we = readerService.getWorkExperienceByName(name);
+        return new ApiCommonResult(true, 1, "ok!", we);
     }
 }

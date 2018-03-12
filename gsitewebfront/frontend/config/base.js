@@ -19,7 +19,7 @@ const path = require("path")
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|eot|svg|ttf|woff|woff2|gif)$/, loader: 'url-loader?limit=100000',
+        test: /\.(png|eot|svg|ttf|woff|woff2|gif|jpg)$/, loader: 'url-loader?limit=100000',
       },
     ]
   },
